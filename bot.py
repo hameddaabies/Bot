@@ -4,14 +4,14 @@ from flask_session import Session
 
 # Initialize the Flask app
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'supersecretkey')
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'Key')
 app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
 
 # Set environment variables
-os.environ["OPENAI_API_KEY"] = "sk-scrapy-vC28ZVIZVCOXwbYqEUjkT3BlbkFJCZX725r6O7Xo7Ov9hz3U"
+os.environ["OPENAI_API_KEY"] = "sk-"
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_API_KEY"] = "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"
+os.environ["LANGCHAIN_API_KEY"] = "lsv2_sk"
 os.environ["LANGCHAIN_PROJECT"] = "Bargainb Multi-agent Supervisor"
 
 from langchain_openai import ChatOpenAI
@@ -36,7 +36,7 @@ def algolia_search(query, hitsPerPage=10):
             4: 'Dirk'
         }
         
-        client = SearchClient.create('DG62X9U03X', '326e0cc4392c4393f22d2a6b08f9c0db')
+        client = SearchClient.create('DG62X9U03X', 'api')
         index = client.init_index('dev_PRODUCTS')
         attributes = ['name', 'english_name', 'price', 'old_price', 'unit', 'offer', 'store_id']
         res = index.search(query, {'attributesToRetrieve': attributes, 'hitsPerPage': hitsPerPage})
