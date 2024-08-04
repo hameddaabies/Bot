@@ -1,0 +1,4 @@
+langchain-openai
+algoliasearch
+Flask
+Flask-Session
